@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nella Cake</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<body>
+  <marquee behavior="scroll" direction="left" scrollamount="5" style="background: #ffcc99; padding: 10px; color: #5a2d0c; font-weight: bold;">
+    🎉 Selamat datang di Nella Cake silahkan dipilih kue kuenya 🎉
+  </marquee>
+
+ 
+
+  <header>
+    <h1>NELLA CAKE</h1>
+    <nav>
+     <nav>
+  <ul>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#pesanan">Keranjang (<span id="cart-count">0</span>)</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+  </ul>
+</nav>
+
+    </nav>
+  </header>
+
+  <main>
+    <section id="menu">
+      <h2>Menu Kue-Kuenya</h2>
+     <div class="menu-container">
+  <div class="menu-item">
+    <img src="images/nastar.jpg" alt="nastar" />
+    <h3>Nastar</h3>
+    <p>Rp75.000</p>
+    <button onclick="pesan('nastar', 75000)">Pesan Sekarang</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/ketapang.jpg" alt="Kue ketapang" />
+    <h3>Kue Ketapang</h3>
+    <p>Rp73.000</p>
+    <button onclick="pesan('kue Ketapang', 73000)">Pesan Sekarang</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/salju.jpg" alt="salju" />
+    <h3>Kue Puteri Salju</h3>
+    <p>Rp70.000</p>
+    <button onclick="pesan('Kue Puter Salju', 70000)">Pesan Sekarang</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/bawang.jpg" alt="Kue Bawang" />
+    <h3>Kue Bawang</h3>
+    <p>Rp70.000</p>
+    <button onclick="pesan('Kue Bawang', 70000)">Pesan Sekarang</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/nastarcoklat.jpg" alt="nastarcoklat" />
+    <h3>Nastar Coklat</h3>
+    <p>Rp70.000</p>
+    <button onclick="pesan('nastar coklat', 70000)">Pesan Sekarang</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/kacang.jpg" alt="kacang" />
+    <h3>Kue Kacang</h3>
+    <p>Rp80.000</p>
+    <button onclick="pesan('Kue Kacang', 80000)">Pesan Sekarang</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/semprit.jpg" alt="semprit" />
+    <h3>kue semprit</h3>
+    <p>Rp70.000</p>
+    <button onclick="pesan('kue semprit', 70000)">Pesan Sekarang</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="images/kas.jpg" alt="kas" />
+    <h3>kue kastengel</h3>
+    <p>Rp73.000</p>
+    <button onclick="pesan('kue kastengel', 73000)">Pesan Sekarang</button>
+  </div>
+  
+  <div class="menu-item">
+    <img src="images/kas.jpg" alt="kas" />
+    <h3>kue kastengel</h3>
+    <p>Rp73.000</p>
+    <button onclick="pesan('kue kastengel', 73000)">Pesan Sekarang</button>
+  </div>
+  
+  <div class="menu-item">
+    <img src="images/kas.jpg" alt="kas" />
+    <h3>kue kastengel</h3>
+    <p>Rp73.000</p>
+    <button onclick="pesan('kue kastengel', 73000)">Pesan Sekarang</button>
+  </div>
+  
+  <div class="menu-item">
+    <img src="images/kas.jpg" alt="kas" />
+    <h3>kue kastengel</h3>
+    <p>Rp73.000</p>
+    <button onclick="pesan('kue kastengel', 73000)">Pesan Sekarang</button>
+  </div>
+  
+  <div class="menu-item">
+    <img src="images/kas.jpg" alt="kas" />
+    <h3>kue kastengel</h3>
+    <p>Rp73.000</p>
+    <button onclick="pesan('kue kastengel', 73000)">Pesan Sekarang</button>
+  </div>
+</div>
+
+    </section>
+
+	<section id="pesanan">
+  <h2>Pesanan Kamu</h2>
+  <ul id="order-list"></ul>
+  <p id="total">Total: Rp0</p>
+  <button id="checkout-btn" onclick="checkout()">Checkout</button>
+  <button class="btn btn-danger mt-2" onclick="batalPesanan()">Batal Semua Pesanan</button>
+
+
+  <div id="pembayaran">
+    <h3>Pilih Metode Pembayaran:</h3>
+    <label><input type="radio" name="metode" value="DANA" checked> DANA</label><br />
+    <label><input type="radio" name="metode" value="OVO"> OVO</label><br />
+    <label><input type="radio" name="metode" value="Rekening Bank"> Transfer Bank</label>
+  </div>
+  <div id="qr-container" style="display: none; text-align: center; margin-top: 20px;">
+  <h3>Scan QR untuk Membayar:</h3>
+  <img id="qr-image" src="" alt="QR Code Pembayaran" style="max-width: 200px;">
+
+  <div id="rekening-info" style="margin-top: 10px; display: none;">
+    <p><strong>No. Rekening:</strong> 1234567890 (BCA a.n. Roti Bakar 88)</p>
+  </div>
+  
+</div>
+
+<!-- DAFTAR MENU UTAMA -->
+
+<div id="menu-item" class="row">
+  <!-- Menu dari admin akan muncul di sini -->
+</div>
+
+<!-- TOMBOL LOGIN ADMIN -->
+<button class="btn btn-dark mt-4" onclick="loginAdmin()">Login Admin</button>
+
+<!-- PANEL ADMIN (diseleksi password) -->
+<div id="admin-panel" class="container mt-4" style="display: none;">
+  <h4>Admin - Tambah Menu Baru</h4>
+  
+  <button class="btn btn-success mb-3" onclick="showFormTambah()">+ Tambah Menu</button>
+  
+  <!-- FORM TAMBAH MENU -->
+  <div id="form-tambah" style="display: none;">
+    <input type="text" id="nama-menu" placeholder="Nama Menu" class="form-control mb-2" required>
+    <input type="number" id="harga-menu" placeholder="Harga" class="form-control mb-2" required>
+    <input type="text" id="gambar-menu" placeholder="Link Gambar (opsional)" class="form-control mb-2">
+    <button class="btn btn-primary" onclick="tambahMenu()">Simpan</button>
+  </div>
+</div>
+
+<!-- DAFTAR MENU UTAMA -->
+<h3 class="mt-4">Menu baru</h3>
+<div id="daftar-menu" class="row">
+  <!-- Menu dari admin akan muncul di sini -->
+</div>
+
+
+
+<!-- Panggil JS -->
+<script src="script.js"></script>
+</section>
+
+  </main>
+
+  <footer id="kontak">
+    <p>Hubungi kami: 0851-7687-5484 | Instagram: @Nellacake</p>
+	
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
